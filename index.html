@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        .DiceContainer{
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        h1{
+            text-align: center;
+        }
+
+        button{
+            display: inline-block;
+
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="col-12"><h1>ทอยลูกเต๋า</h1></div>
+    </div>
+
+    <div id="container" style="margin-top: 30px;">
+        <div class="row">
+            <img class="col dice" src="./image/dice-1.svg">
+            <img class="col dice" src="./image/dice-2.svg">
+            <img class="col dice" src="./image/dice-3.svg">
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 col-6 mx-auto" style="margin-top: 30px;">
+        <button onclick="RandomNum" class="btn btn-primary" type="button">ทอย</button>
+    </div>
+
+    <script>
+        let dice = document.getElementsByClassName("dice");
+
+        document.getElementsByClassName("btn")[0].addEventListener("click", RandomNum);
+        
+        function RandomNum(){
+            for(let i=0; i<3; i++){
+                let x = (Math.random() * 6)+1;
+                dice[i].src = "./image/dice-" + (parseInt(x)) + ".svg";
+            }
+            console.log("done");
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+</body>
+</html>
